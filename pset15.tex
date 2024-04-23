@@ -95,8 +95,12 @@ The problems below make use of concepts and definitions from Sections 10.1 and 1
       Hall's theorem is satisfied.
 
       \underline{Case 2}: $|A| > d$\\
-      \textcolor{red}{HELP}
-      
+      The number of edges connecting $A$ to $N(A)$ is $a = d|A|$.\\
+      The number of edges connecting $N(A)$ to $N(N(A))$ is $b = d|N(A)|$.\\
+      $N(A)$ may have neighbors outside $A$.\\
+      That is, the $b$ edges connecting $N(A)$ to $N(N(A))$ may comprise edges other than the $a$ edges connecting $N(A)$ to $A$.\\
+      So, $a\le b \implies d|A| \le d|N(A) \implies |A| \le |N(A)|$.\\
+      Hall's theorem is satisfied.
     \end{proof}
   \end{solution}
 
@@ -105,12 +109,12 @@ The problems below make use of concepts and definitions from Sections 10.1 and 1
   \underline{Hint}: Consider each guide having 10 time slots corresponding to the constraint that each guide conducts at most 10 tours.
   \begin{solution}
     Consider a bipartite graph with bipartitions, $T$ and $S$, corresponding to tourists and time slots of the guides respectively, where $T=\{t_1,t_2,\ldots,t_{100}\}$ and
-    
-{\small
-  $G=\{g_1s_1, g_1s_2,\ldots, g_1s_{10},g_2s_1, g_2s_2,\ldots, g_2s_{10},g_3s_1, g_3s_2,\ldots, g_3s_{10}\ldots,g_{25}s_1, g_{25}s_2,\ldots, g_{25}s_{10}\}$.
-}
+    \[
+      G = \{g_1s_1, g_1s_2,\ldots, g_1s_{10}\} \cup \{g_2s_1, g_2s_2,\ldots, g_2s_{10}\} \cup \ldots \cup \{g_{25}s_1, g_{25}s_2,\ldots, g_{25}s_{10}\}
+    \]
+        
 
-Vertices in $S$ represent all of the 10 slots of each of the 25 guides. If a tourist likes a guide, then there is an edge between the vertex in $T$ for the tourist and the 10 vertices in $S$ that represent the 10 slots of the guide. As each tourist likes at least 10 guides, each vertex in $T$ has degree at least $100$.
+Vertices in $S$ represent all of the 10 slots of each of the 25 guides. If a tourist likes a guide, then there is an edge between the vertex in $T$ for the tourist and the 10 vertices in $S$ that represent the 10 slots of the guide. As each tourist likes at least 10 guides, the degree of each vertex in $T$ is at least $100$.
 
 The condition required in the problem then corresponds to a complete matching from $T$ to $S$. We show using Hall's theorem that such a matching exists.
 
